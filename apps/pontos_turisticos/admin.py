@@ -9,7 +9,11 @@ class PontoTuristicoAdmin(admin.ModelAdmin):
     model = PontoTuristico
 
     # definir fields
-    fields = ["__all__"]
+    fields = [
+        "nome",
+        "descricao",
+        "status",
+    ]
 
 
 # registrar os 2 models
