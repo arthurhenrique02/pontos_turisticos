@@ -1,6 +1,8 @@
 from django.db import models
 
 from apps.atracoes.models import Atracao
+from apps.comentarios.models import Comentario
+from apps.avaliacoes.models import Avaliacao
 
 
 # criar model de ponto turistico
@@ -15,6 +17,12 @@ class PontoTuristico(models.Model):
 
     # relacionar com atração
     atracoes = models.ManyToManyField(Atracao)
+
+    # relacionar com comentarios
+    comentarios = models.ManyToManyField(Comentario)
+
+    # relacionar com avaliações
+    avaliacoes = models.ManyToManyField(Avaliacao)
 
     # retornar nome do local
     def __str__(self):

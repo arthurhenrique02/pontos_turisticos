@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "apps.pontos_turisticos",
     "apps.atracoes",
+    "apps.comentarios",
+    "apps.avaliacoes",
 ]
 
 MIDDLEWARE = [
