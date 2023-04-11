@@ -13,6 +13,7 @@ class PontoTuristicoAdmin(admin.ModelAdmin):
         "nome",
         "descricao",
         "status",
+        "atracoes",
     ]
 
 
