@@ -15,6 +15,7 @@ class PontoTuristicoAdmin(admin.ModelAdmin):
         "status",
         "atracoes",
         "avaliacoes",
+        "endereco",
     ]
 
 
