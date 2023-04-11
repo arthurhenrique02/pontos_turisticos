@@ -2,6 +2,6 @@ venv
 env
 .venv
 .env
-
+*__pycache___
 *.sqlite3
 *.vscode
