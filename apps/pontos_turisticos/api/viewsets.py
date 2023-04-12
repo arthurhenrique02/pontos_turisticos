@@ -7,7 +7,7 @@ from .serializers import PontoTuristicoSerializer
 
 
 # criar view set
-class PontoTuristicoViewSet(ModelViewSet):
+class PontosTuristicosViewSet(ModelViewSet):
     # definir query set (provisoriamente o .all)
     queryset = PontoTuristico.objects.all()
 
