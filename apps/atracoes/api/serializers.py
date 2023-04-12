@@ -11,6 +11,7 @@ class AtracoesSerializer(serializers.ModelSerializer):
 
         # definir fields
         fields = [
+            "id",
             "nome",
             "descricao",
             "horario_abertura",

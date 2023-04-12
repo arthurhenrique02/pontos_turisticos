@@ -25,6 +25,7 @@ class ComentariosSerializer(serializers.ModelSerializer):
 
         # definir fields
         fields = [
+            "id",
             "user",
             "comentario",
             "data",

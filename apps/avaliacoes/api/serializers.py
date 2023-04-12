@@ -18,6 +18,7 @@ class AvaliacoesSerializer(serializers.ModelSerializer):
 
         # definir fields
         fields = [
+            "id",
             "user",
             "estrelas",
         ]

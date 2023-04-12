@@ -30,6 +30,7 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
 
         # definir fields
         fields = [
+            "id",
             "endereco",
             "nome",
             "descricao",

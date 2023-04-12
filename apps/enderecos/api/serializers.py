@@ -12,6 +12,7 @@ class EnderecosSerializer(serializers.ModelSerializer):
 
         # definir fiels
         fields = [
+            "id",
             "dados",
             "cidade",
             "estado",
