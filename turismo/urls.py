@@ -10,4 +10,6 @@ urlpatterns = [
     path("atracoes/", include("apps.atracoes.urls")),
     # incluir rotas de atrações
     path("enderecos/", include("apps.enderecos.urls")),
+    # incluir rotas de atrações
+    path("comentarios/", include("apps.comentarios.urls")),
 ]
