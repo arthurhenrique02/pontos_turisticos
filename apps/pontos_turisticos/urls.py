@@ -7,9 +7,10 @@ from apps.pontos_turisticos.api.viewsets import PontoTuristicoViewSet
 
 # definir router
 router = routers.DefaultRouter()
-
+# registrar rota
 router.register("", PontoTuristicoViewSet, basename="pontoTuristico")
 
 urlpatterns = [
+    # adicionar ao path
     path("", include(router.urls)),
 ]
