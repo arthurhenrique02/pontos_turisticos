@@ -8,4 +8,6 @@ urlpatterns = [
     path("pontos-turisticos/", include("apps.pontos_turisticos.urls")),
     # incluir rotas de atrações
     path("atracoes/", include("apps.atracoes.urls")),
+    # incluir rotas de atrações
+    path("enderecos/", include("apps.enderecos.urls")),
 ]
