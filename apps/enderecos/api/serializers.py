@@ -16,4 +16,6 @@ class EnderecosSerializer(serializers.ModelSerializer):
             "cidade",
             "estado",
             "pais",
+            "latitude",
+            "longitude",
         ]
