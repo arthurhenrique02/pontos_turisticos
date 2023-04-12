@@ -9,7 +9,7 @@ from apps.comentarios.api.viewsets import ComentariosViewSet
 # definir router
 router = routers.DefaultRouter()
 # registrar rota
-router.register("", ComentariosViewSet, basename="atracoes")
+router.register("", ComentariosViewSet, basename="comentarios")
 
 urlpatterns = [
     # adicionar ao path
