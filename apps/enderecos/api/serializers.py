@@ -4,7 +4,7 @@ from apps.enderecos.models import Endereco
 
 
 # criar serializer
-class EnderecoSerializer(serializers.ModelSerializer):
+class EnderecosSerializer(serializers.ModelSerializer):
     # criar Meta
     class Meta:
         # definir model
