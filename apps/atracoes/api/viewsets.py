@@ -2,7 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
 
 from apps.atracoes.models import Atracao
-from .serializers import AtracaoSerializer
+from .serializers import AtracoesSerializer
 
 
 # criar class viewset
@@ -11,7 +11,7 @@ class AtracoesViewSet(ModelViewSet):
     queryset = Atracao.objects.all()
 
     # definir serializer
-    serializer_class = AtracaoSerializer
+    serializer_class = AtracoesSerializer
 
     # definir pagination
     pagination_class = LimitOffsetPagination

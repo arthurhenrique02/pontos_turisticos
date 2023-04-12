@@ -4,7 +4,7 @@ from apps.atracoes.models import Atracao
 
 
 # criar serializer
-class AtracaoSerializer(serializers.ModelSerializer):
+class AtracoesSerializer(serializers.ModelSerializer):
     class Meta:
         # definir model
         model = Atracao
