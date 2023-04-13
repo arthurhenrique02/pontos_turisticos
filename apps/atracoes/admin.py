@@ -15,6 +15,7 @@ class AtracaoAdmin(admin.ModelAdmin):
         "horario_abertura",
         "horario_fechamento",
         "idade_min",
+        "imagem",
     ]
 
 

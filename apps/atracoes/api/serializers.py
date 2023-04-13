@@ -17,4 +17,5 @@ class AtracoesSerializer(serializers.ModelSerializer):
             "horario_abertura",
             "horario_fechamento",
             "idade_min",
+            "imagem",
         ]
