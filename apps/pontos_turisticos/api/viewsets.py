@@ -60,6 +60,11 @@ class PontosTuristicosViewSet(ModelViewSet):
 
     # sobrescrever update (PUT)
     # def update(self, request, *args, **kwargs):
-    #     pode-se adicionar a data anterior a outra tabela, por exemplo
+    #     pode-se adicionar as informações anteriores a outra tabela, por exemplo
     #     ...
     #     return super().update(request, *args, **kwargs)
+
+    # sobrescrever o partial_update (PATCH)
+    # def partial_update(self, request, *args, **kwargs):
+    #    pode-se adicionar as informações anteriores a outra tabela, por exemplo 
+    #    return super().partial_update(request, *args, **kwargs)
