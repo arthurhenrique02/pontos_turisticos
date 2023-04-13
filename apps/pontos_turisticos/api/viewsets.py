@@ -39,3 +39,13 @@ class PontosTuristicosViewSet(ModelViewSet):
         # retornar apenas os pontos turisticos aprovados (status=True)
         queryset = PontoTuristico.objects.filter(status=True)
         return Response(PontoTuristicoSerializer(queryset, many=True).data)
+    
+    # para sobrescrever o create (POST)
+    # linha não alterada, apenas mostrado em comentario
+    # def create(self, request, *args, **kwargs):
+    #     return super().create(request, *args, **kwargs)
+
+    # sobrescrever destroy (DELETE)
+    # geralmente, é uma necessidade reescrever este metodo
+    # def destroy(self, request, *args, **kwargs):
+    #     return super().destroy(request, *args, **kwargs)
