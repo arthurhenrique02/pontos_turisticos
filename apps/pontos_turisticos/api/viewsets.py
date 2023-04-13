@@ -48,4 +48,12 @@ class PontosTuristicosViewSet(ModelViewSet):
     # sobrescrever destroy (DELETE)
     # geralmente, é uma necessidade reescrever este metodo
     # def destroy(self, request, *args, **kwargs):
+    #     pode-se fazer um soft delete (apenas mudar a flag, por exemplho: mudar de flag=ativa para flag=deleteda)
+    #     para evitar deletar do banco de dados (má pratica)
     #     return super().destroy(request, *args, **kwargs)
+
+    # sobrescrever retrive (GET only)
+    # def retrieve(self, request, *args, **kwargs):
+    #     pode-se adicionar logs para verificar quem acessa
+    #     verificar status do usuario, etc
+    #     return super().retrieve(request, *args, **kwargs)
