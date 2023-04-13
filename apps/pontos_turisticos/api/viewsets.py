@@ -57,3 +57,9 @@ class PontosTuristicosViewSet(ModelViewSet):
     #     pode-se adicionar logs para verificar quem acessa
     #     verificar status do usuario, etc
     #     return super().retrieve(request, *args, **kwargs)
+
+    # sobrescrever update (PUT)
+    # def update(self, request, *args, **kwargs):
+    #     pode-se adicionar a data anterior a outra tabela, por exemplo
+    #     ...
+    #     return super().update(request, *args, **kwargs)
