@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.response import Response
 
 from apps.pontos_turisticos.models import PontoTuristico
 
@@ -17,7 +18,7 @@ class PontosTuristicosViewSet(ModelViewSet):
     # adicionar paginação
     pagination_class = LimitOffsetPagination
 
-    # sobreescrever get_queryset
+    # sobrescrever get_queryset
     def get_queryset(self):
         # query set padrao = pegar todos os objetos
         queryset = PontoTuristico.objects.all()
@@ -32,3 +33,9 @@ class PontosTuristicosViewSet(ModelViewSet):
 
         # retornar query
         return queryset
+
+    # sobrescrever List (GET all)
+    def list(self, request, *args, **kwargs):
+        # retornar apenas os pontos turisticos aprovados (status=True)
+        queryset = PontoTuristico.objects.filter(status=True)
+        return Response(PontoTuristicoSerializer(queryset, many=True).data)
