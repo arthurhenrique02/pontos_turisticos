@@ -115,3 +115,9 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Define default route to Media Images
+MEDIA_ROOT = "imagens"
+
+# Define media url
+MEDIA_URL = "/media/"

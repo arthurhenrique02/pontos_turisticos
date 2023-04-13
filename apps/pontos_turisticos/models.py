@@ -21,6 +21,9 @@ class PontoTuristico(models.Model):
     # setar default=False
     status = models.BooleanField(default=False, help_text="Aprovado/reprovado")
 
+    # imagem do ponto turistico. Fazer upload para uma pasta
+    imagem = models.ImageField(upload_to="imagens_pontos_turisticos", null=True, blank=True)
+
     # relacionar com atração
     atracoes = models.ManyToManyField(Atracao, blank=True)
 
@@ -35,6 +38,7 @@ class PontoTuristico(models.Model):
     endereco = models.OneToOneField(
         Endereco, on_delete=models.CASCADE
     )
+
 
     # retornar nome do local
     def __str__(self):

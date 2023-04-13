@@ -11,11 +11,12 @@ class PontoTuristicoAdmin(admin.ModelAdmin):
     # definir fields
     fields = [
         "nome",
+        "endereco",
         "descricao",
         "status",
         "atracoes",
         "avaliacoes",
-        "endereco",
+        "imagem",
     ]
 
 
