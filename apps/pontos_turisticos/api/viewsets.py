@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from apps.pontos_turisticos.models import PontoTuristico
@@ -68,3 +69,9 @@ class PontosTuristicosViewSet(ModelViewSet):
     # def partial_update(self, request, *args, **kwargs):
     #    pode-se adicionar as informações anteriores a outra tabela, por exemplo 
     #    return super().partial_update(request, *args, **kwargs)
+
+    # criar action de denunciar (basta definir um metodo normalmente e adicionar um decorador @actions())
+    # detail que dizer se a action será referente à um recurso, ou a endpoint. Se detail=True, é referente à um recurso
+    # @action(methods=["GET"], detail=True) # passar métodos que deseja como parâmetro
+    # def denunciar(self, request, pk=None): # pegar request e pk
+    #     pass
