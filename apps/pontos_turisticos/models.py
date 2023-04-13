@@ -8,10 +8,15 @@ from apps.enderecos.models import Endereco
 
 # criar model de ponto turistico
 class PontoTuristico(models.Model):
+    # id
+    id = models.AutoField(primary_key=True)
+
     # nome
     nome = models.CharField(max_length=100, help_text="nome do ponto turistico")
+
     # descrição
     descricao = models.CharField(max_length=250, help_text="descrição breve do local")
+    
     # status do local (para verificar se vai para a listagem ou não)
     # setar default=False
     status = models.BooleanField(default=False, help_text="Aprovado/reprovado")
@@ -28,7 +33,7 @@ class PontoTuristico(models.Model):
     # relacionar com o endereço
     # relação 1to1 pois um ponto turístico não pode estar em dois locais ao mesmo tempo
     endereco = models.OneToOneField(
-        Endereco, on_delete=models.CASCADE, primary_key=True
+        Endereco, on_delete=models.CASCADE
     )
 
     # retornar nome do local
