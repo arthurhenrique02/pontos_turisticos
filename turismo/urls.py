@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -14,4 +16,4 @@ urlpatterns = [
     path("comentarios/", include("apps.comentarios.urls")),
     # incluir rotas de avaliações
     path("avaliacoes/", include("apps.avaliacoes.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # necessario para o django servir as imagens
