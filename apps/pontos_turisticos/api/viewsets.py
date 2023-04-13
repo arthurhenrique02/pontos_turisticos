@@ -26,10 +26,6 @@ class PontosTuristicosViewSet(ModelViewSet):
         # transformar em string e escrever com primeira letra maiuscula (capitalize)
         status = self.request.query_params.get("status")
 
-        # tratar queryset
-        # if status.is):
-        #     status = "True"
-
         # mudar queryset
         if status:
             queryset = PontoTuristico.objects.filter(status=status)
