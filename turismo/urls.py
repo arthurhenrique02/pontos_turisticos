@@ -3,6 +3,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework.authtoken import views
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -16,4 +18,8 @@ urlpatterns = [
     path("comentarios/", include("apps.comentarios.urls")),
     # incluir rotas de avaliações
     path("avaliacoes/", include("apps.avaliacoes.urls")),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # necessario para o django servir as imagens
+    # incluir url de tokens
+    path("api-token-auth/", views.obtain_auth_token),
+] + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)  # necessario para o django servir as imagens
