@@ -1,5 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 from rest_framework import filters
 
 from apps.pontos_turisticos.models import PontoTuristico
@@ -9,6 +11,12 @@ from .serializers import PontoTuristicoSerializer
 
 # criar view set
 class PontosTuristicosViewSet(ModelViewSet):
+    # adicionar metodo de autenticação
+    authentication_classes = (TokenAuthentication,)
+
+    # adicionar permissão
+    permission_classes = (IsAuthenticated,)
+
     # definir query set (provisoriamente o .all)
     queryset = PontoTuristico.objects.all()
 
