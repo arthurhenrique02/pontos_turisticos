@@ -15,3 +15,6 @@ class AtracoesViewSet(ModelViewSet):
 
     # definir pagination
     pagination_class = LimitOffsetPagination
+
+    # habilitar filter fields
+    filterset_fields = ["id", "nome"]

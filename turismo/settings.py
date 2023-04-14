@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_filters",
     "rest_framework",
     "apps.pontos_turisticos",
     "apps.atracoes",
@@ -121,3 +122,7 @@ MEDIA_ROOT = "imagens"
 
 # Define media url
 MEDIA_URL = "/media/"
+
+REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"]
+}
