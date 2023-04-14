@@ -24,22 +24,33 @@ class PontosTuristicosViewSet(ModelViewSet):
         # query set padrao = pegar todos os objetos
         queryset = PontoTuristico.objects.all()
 
-        # queryset para um determinado status
-        # transformar em string e escrever com primeira letra maiuscula (capitalize)
-        status = self.request.query_params.get("status")
-
+        # queryset para um determinado id, status
+        # definir None, caso o usuario não passe nenhum parametro
+        id = self.request.query_params.get("id", None)
+        nome = self.request.query_params.get("nome", None)
+        status = self.request.query_params.get("status", None)
+ 
         # mudar queryset
+        # por id
+        if id:
+            queryset = queryset.filter(id=id)
+
+        # por nome. Ignorar caso sensitivo (__iexact)
+        if nome:
+            queryset = queryset.filter(nome__iexact=nome)
+
+        # por status
         if status:
-            queryset = PontoTuristico.objects.filter(status=status)
+            queryset = queryset.filter(status=status)
 
         # retornar query
         return queryset
 
     # sobrescrever List (GET all)
-    def list(self, request, *args, **kwargs):
-        # retornar apenas os pontos turisticos aprovados (status=True)
-        queryset = PontoTuristico.objects.filter(status=True)
-        return Response(PontoTuristicoSerializer(queryset, many=True).data)
+    # def list(self, request, *args, **kwargs):
+    #     # retornar apenas os pontos turisticos aprovados (status=True)
+    #     queryset = PontoTuristico.objects.filter(status=True)
+    #     return Response(PontoTuristicoSerializer(queryset, many=True).data)
     
     # para sobrescrever o create (POST)
     # linha não alterada, apenas mostrado em comentario
