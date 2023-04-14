@@ -1,7 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.decorators import action
-from rest_framework.response import Response
+from rest_framework import filters
 
 from apps.pontos_turisticos.models import PontoTuristico
 
@@ -21,6 +20,12 @@ class PontosTuristicosViewSet(ModelViewSet):
 
     # habilitar filter fields, filtragem é melhor feita utilizando o filterset_fields
     filterset_fields = ["id", "nome", "status"]
+
+    # adicionar filtro search
+    filter_backends = (filters.SearchFilter,)
+
+    # adicionar fields que serão filtrados
+    search_fields = ["nome", "endereco__dados"]
 
     # sobrescrever get_queryset
     # def get_queryset(self):

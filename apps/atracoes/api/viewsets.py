@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework import filters
 
 from apps.atracoes.models import Atracao
 from .serializers import AtracoesSerializer
@@ -18,3 +19,9 @@ class AtracoesViewSet(ModelViewSet):
 
     # habilitar filter fields
     filterset_fields = ["id", "nome"]
+
+    # adicionar filtro search
+    filter_backends = (filters.SearchFilter,)
+
+    # adicionar fields que serão filtrados
+    search_fields = ["nome", "endereco__dados"]
