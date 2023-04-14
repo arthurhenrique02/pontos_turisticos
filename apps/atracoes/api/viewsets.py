@@ -1,5 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework import filters
 
 from apps.atracoes.models import Atracao
@@ -8,6 +10,12 @@ from .serializers import AtracoesSerializer
 
 # criar class viewset
 class AtracoesViewSet(ModelViewSet):
+    # adicionar metodo de autenticação
+    authentication_classes = (TokenAuthentication,)
+
+    # adicionar permissão (ser autenticado, ou apenas poder ler as infos)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
     # definir queryset
     queryset = Atracao.objects.all()
 
