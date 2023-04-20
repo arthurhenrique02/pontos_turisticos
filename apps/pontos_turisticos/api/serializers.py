@@ -4,6 +4,7 @@ from apps.pontos_turisticos.models import PontoTuristico
 from apps.enderecos.models import Endereco
 from apps.atracoes.models import Atracao
 from apps.avaliacoes.models import Avaliacao
+from apps.avaliacoes.api.serializers import AvaliacoesSerializer
 
 
 # criar serializer
@@ -18,10 +19,10 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
     atracoes = serializers.SlugRelatedField(
         many=True, queryset=Atracao.objects.all(), slug_field="nome"
     )
-    # mostrar as estrelas das avaliacoes
-    avaliacoes = serializers.SlugRelatedField(
-        many=True, queryset=Avaliacao.objects.all(), slug_field="estrelas"
-    )
+    # utilizando nested relationship para exibir as avaliacoes
+    # pode-se criar um outro serializer e definir os fields, ou utilizar o mesmo
+    # Cria-se outro caso desejo um mais completo, ou um mais simples que o padrao
+    avaliacoes = AvaliacoesSerializer(many=True)
 
     # criar meta
     class Meta:
