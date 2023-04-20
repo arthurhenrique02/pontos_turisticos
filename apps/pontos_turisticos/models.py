@@ -16,13 +16,15 @@ class PontoTuristico(models.Model):
 
     # descrição
     descricao = models.CharField(max_length=250, help_text="descrição breve do local")
-    
+
     # status do local (para verificar se vai para a listagem ou não)
     # setar default=False
     status = models.BooleanField(default=False, help_text="Aprovado/reprovado")
 
     # imagem do ponto turistico. Fazer upload para uma pasta
-    imagem = models.ImageField(upload_to="imagens_pontos_turisticos", null=True, blank=True)
+    imagem = models.ImageField(
+        upload_to="imagens_pontos_turisticos", null=True, blank=True
+    )
 
     # relacionar com atração
     atracoes = models.ManyToManyField(Atracao, blank=True)
@@ -35,10 +37,13 @@ class PontoTuristico(models.Model):
 
     # relacionar com o endereço
     # relação 1to1 pois um ponto turístico não pode estar em dois locais ao mesmo tempo
-    endereco = models.OneToOneField(
-        Endereco, on_delete=models.CASCADE
-    )
+    endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE)
 
+    # pode-se utilizar o decorator "property" ao inves de utilizar o serializer method field (no serializer)
+    # pode ser utilizado para funções mais simples (regras de negocios mais simples)
+    @property
+    def descricao_completa_no_model(self):
+        return f"{self.nome} - {self.descricao}"
 
     # retornar nome do local
     def __str__(self):

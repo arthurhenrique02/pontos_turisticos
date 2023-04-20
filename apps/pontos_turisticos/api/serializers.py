@@ -24,6 +24,9 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
     # Cria-se outro caso desejo um mais completo, ou um mais simples que o padrao
     avaliacoes = AvaliacoesSerializer(many=True)
 
+    # adicionando serializer method field
+    descricao_completa = serializers.SerializerMethodField()
+
     # criar meta
     class Meta:
         # definir model
@@ -40,4 +43,10 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
             "atracoes",
             "comentarios",
             "avaliacoes",
+            "descricao_completa",
+            "descricao_completa_no_model",
         ]
+
+    # definir a função de get para o serializer method field
+    def get_descricao_completa(self, obj):
+        return f"{obj.nome} - {obj.descricao}"
