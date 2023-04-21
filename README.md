@@ -14,5 +14,11 @@
 
 ## Rotas
 
-#### Há rotas para pontos turisticos (pontos-turisticos/), enderecos(enderecos/), comentários (comentarios/), avaliações (avaliacoes/), autenticação do token (url do proprio django rest, api-token-auth/) e para ver as imagens dos pontos turisticos e atrações
+#### Há rotas para:
+#### &nbsp; &nbsp; &nbsp; &nbsp; * pontos turisticos (pontos-turisticos/)
+#### &nbsp; &nbsp; &nbsp; &nbsp; * enderecos(enderecos/) 
+#### &nbsp; &nbsp; &nbsp; &nbsp; * comentários (comentarios/)
+#### &nbsp; &nbsp; &nbsp; &nbsp; * avaliações (avaliacoes/)
+#### &nbsp; &nbsp; &nbsp; &nbsp; * autenticação do token (url do proprio django rest, api-token-auth/)
+#### &nbsp; &nbsp; &nbsp; &nbsp; * para ver as imagens dos pontos turisticos e atrações
 
