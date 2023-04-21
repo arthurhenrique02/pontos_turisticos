@@ -20,3 +20,20 @@
 #### &nbsp; &nbsp; &nbsp; &nbsp; * autenticação do token (url do proprio django rest, api-token-auth/)
 #### &nbsp; &nbsp; &nbsp; &nbsp; * para ver as imagens dos pontos turisticos e atrações
 
+
+## Algumas bibliotecas
+
+### python decouple
+#### &nbsp; &nbsp; &nbsp; &nbsp; * Biblioteca responsável por pegar os dados necessários (secrect_key e debug) do sistema, mais especificamente da pasta .env
+#### &nbsp; &nbsp; &nbsp; &nbsp; * É utilizada quando fizer deploy no Heroku
+
+### dj-database-url
+#### &nbsp; &nbsp; &nbsp; &nbsp; * Cria uma URL para o banco de dados, podendo utilizá-lo de maneira mais segura
+#### &nbsp; &nbsp; &nbsp; &nbsp; * Cria-se a URL a partir a localização do banco de dados, caso não o encontre, utiliza um default
+
+### dj-static
+#### &nbsp; &nbsp; &nbsp; &nbsp; * Responsável por disponibilizar as imagens do projeto, já que o Djnago Rest Framework não tem uma disponibilização muito boa para essas imagens
+#### &nbsp; &nbsp; &nbsp; &nbsp; * Ele trabalha com todos os arquivos estáticos, disponibilizando-os de maneira mais simples
+
+### Pillow
+#### &nbsp; &nbsp; &nbsp; &nbsp; * Uma das principais bibliotecas para trabalho com imagem do Python, ele é utilizado para pegar as imagens enviadas pelo usuário.
