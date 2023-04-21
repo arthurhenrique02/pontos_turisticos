@@ -13,8 +13,6 @@
 #### Na API há um requerimento de Token para que se possa manipular e alterar os dados, você pode criar seu usuário e utilizar o token do mesmo, não é necessário ter um token especial (token de admin, por exemplo). Então crie seu usuário e utilize o Token de reconhecimento do mesmo
 
 ## Rotas
-
-#### Há rotas para:
 #### &nbsp; &nbsp; &nbsp; &nbsp; * pontos turisticos (pontos-turisticos/)
 #### &nbsp; &nbsp; &nbsp; &nbsp; * enderecos(enderecos/) 
 #### &nbsp; &nbsp; &nbsp; &nbsp; * comentários (comentarios/)
