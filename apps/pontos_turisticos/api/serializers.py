@@ -71,7 +71,7 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
         # remover da request
         del validated_data["endereco"]
 
-        # criar o ponto turistico, passar o dicionario desempacotado
+        # criar o ponto turistico, passar o dicionario desempacotado e o endereço
         ponto_turistico = PontoTuristico.objects.create(**validated_data, endereco=Endereco.objects.create(**endereco))
 
         #criar avaliacao para o ponto turistico
