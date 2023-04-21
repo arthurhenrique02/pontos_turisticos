@@ -6,3 +6,4 @@ env
 *.sqlite3
 *.vscode
 *.mypy_cache
+.idea
