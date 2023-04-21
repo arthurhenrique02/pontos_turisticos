@@ -4,16 +4,16 @@ from apps.pontos_turisticos.models import PontoTuristico
 from apps.enderecos.models import Endereco
 from apps.atracoes.models import Atracao
 from apps.avaliacoes.models import Avaliacao
+
 from apps.avaliacoes.api.serializers import AvaliacoesSerializer
+from apps.enderecos.api.serializers import EnderecosSerializer
 
 
 # criar serializer
 class PontoTuristicoSerializer(serializers.ModelSerializer):
-    # definir slug para mostrar determinados nomes
-    # endereço
-    endereco = serializers.SlugRelatedField(
-        queryset=Endereco.objects.all(), slug_field="dados"
-    )
+    # criar nested relation para endereço
+    endereco = EnderecosSerializer()
+
     # many=True é para fields m2m
     # atraçoes (mostrar o nome)
     atracoes = serializers.SlugRelatedField(
@@ -57,6 +57,7 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
             # adicionar avaliacao ao ponto turistico
             ponto_turistico.avaliacoes.add(avaliacao_criada)
 
+
     # sobrescrever o create
     def create(self, validated_data):
         # pegar as avaliacoes da request
@@ -65,13 +66,20 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
         # remover as avaliacoes da request
         del validated_data["avaliacoes"]
 
+        # pegar endereco digitado
+        endereco = validated_data["endereco"]
+        # remover da request
+        del validated_data["endereco"]
+
         # criar o ponto turistico, passar o dicionario desempacotado
-        ponto_turistico = PontoTuristico.objects.create(**validated_data)
+        ponto_turistico = PontoTuristico.objects.create(**validated_data, endereco=Endereco.objects.create(**endereco))
 
         #criar avaliacao para o ponto turistico
         self.cria_avaliacao(avalicoes, ponto_turistico)
 
+        # retornar ponto turistico
         return ponto_turistico
+    
     # definir a função de get para o serializer method field
     def get_descricao_completa(self, obj):
         return f"{obj.nome} - {obj.descricao}"
