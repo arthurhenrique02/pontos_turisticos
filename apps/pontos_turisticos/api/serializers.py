@@ -17,7 +17,7 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
     # many=True é para fields m2m
     # atraçoes (mostrar o nome)
     atracoes = serializers.SlugRelatedField(
-        many=True, queryset=Atracao.objects.all(), slug_field="nome"
+        many=True, read_only=True, slug_field="nome"
     )
     # utilizando nested relationship para exibir as avaliacoes
     # pode-se criar um outro serializer e definir os fields, ou utilizar o mesmo
@@ -47,6 +47,31 @@ class PontoTuristicoSerializer(serializers.ModelSerializer):
             "descricao_completa_no_model",
         ]
 
+    # criar função para criar avaliacoes
+    def cria_avaliacao(self, avaliacoes, ponto_turistico):
+        # iterar lista de avaliacoes
+        for avaliacao in avaliacoes:
+            # criar a avaliacao
+            avaliacao_criada = Avaliacao.objects.create(**avaliacao)
+
+            # adicionar avaliacao ao ponto turistico
+            ponto_turistico.avaliacoes.add(avaliacao_criada)
+
+    # sobrescrever o create
+    def create(self, validated_data):
+        # pegar as avaliacoes da request
+        avalicoes = validated_data["avaliacoes"]
+
+        # remover as avaliacoes da request
+        del validated_data["avaliacoes"]
+
+        # criar o ponto turistico, passar o dicionario desempacotado
+        ponto_turistico = PontoTuristico.objects.create(**validated_data)
+
+        #criar avaliacao para o ponto turistico
+        self.cria_avaliacao(avalicoes, ponto_turistico)
+
+        return ponto_turistico
     # definir a função de get para o serializer method field
     def get_descricao_completa(self, obj):
         return f"{obj.nome} - {obj.descricao}"
